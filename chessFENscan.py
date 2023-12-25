@@ -1,7 +1,7 @@
 import pyautogui
 import time
 import math
-from PyQt6.QtWidgets import QApplication, QLabel, QWidget
+from PyQt6.QtWidgets import QApplication, QLabel, QWidget, QPushButton
 import sys
 #maybe i DO need the images to be in the same folder.
 
@@ -16,12 +16,11 @@ import sys
 #possibly have it make new screenshot files so user doesn't have to make new presets every time.
 #have a default FEN in analysis, with instructions so machine captures one of each piece on each colour.
 
-
-time.sleep(5)
-img="newrook.PNG"
-a= pyautogui.locateAllOnScreen(img,grayscale=True,confidence=0.9)
-for x in a:
-    print(x)
+def scanrook():
+    img="newrook.PNG"
+    a= pyautogui.locateAllOnScreen(img,grayscale=True,confidence=0.9)
+    for x in a:
+        print(x)
 
 
     #so should work even with another window over the one you want to look at. so directly 
@@ -35,6 +34,11 @@ window.setWindowTitle("PyQt App")
 window.setGeometry(100, 100, 280, 80)
 helloMsg = QLabel("<h1>Hello, World!</h1>", parent=window)
 helloMsg.move(60, 15)
+
+button = QPushButton("Greet",parent=window)
+button.clicked.connect(scanrook)
+
+
 
 window.show()
 sys.exit(app.exec())
