@@ -71,11 +71,7 @@ TLcoordButton.clicked.connect(mh.topleftcoord)
 
 
 
-with Listener(on_click=mh.is_clicked) as listener:
-    listener.join()
-#will wait for it to return false to end this listener block.
-    #meaning, whenever needed, can call this listener block when the button is pressed
-    #need to return false to continue the code.
+
 window.show()
 
 
