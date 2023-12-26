@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import QApplication, QLabel, QWidget, QPushButton
 import sys
 import mouseinputhandler as mh
 from pynput.mouse import Listener
+import timeit
 #installed requires pyqt6, pyautogui, pillow, opencv, pynput
 #maybe i DO need the images to be in the same folder.
 #next steps: compile to exe? 
@@ -28,9 +29,13 @@ def scanrook():
     img="newrook.PNG"
 
     try:
-        a= pyautogui.locateAllOnScreen(img,grayscale=True,confidence=0.95)
-        for x in a:
-            print(x)
+        t1=time.time()
+        #a=pyautogui.locateAllOnScreen(img,grayscale=True)
+        a=pyautogui.locate(img,img,grayscale=True)
+        print(a)
+        # for x in a:
+        #     print(x)
+        print("time:", time.time()-t1)
 
     except:
         print("Not found")
@@ -40,7 +45,8 @@ def scanrook():
     #cannot put the for x in a here because will reference a again.
     
     finally: 
-        pyautogui.moveTo(100, 150)
+        print(mh.randomvar)
+        pyautogui.moveTo(1150, 940)
         #https://stackoverflow.com/questions/1181464/controlling-mouse-with-python
         print(pyautogui.position()[0])
         print("Woohoo!")
@@ -62,11 +68,14 @@ helloMsg.move(60, 15)
 
 button = QPushButton("Greet",parent=window)
 button.move(30,0)
+button.move(0,50)
 button.clicked.connect(scanrook)
 
 TLcoordButton = QPushButton("Top-Left Selection", parent=window)
-button.move(0,50)
+
 TLcoordButton.clicked.connect(mh.topleftcoord)
+#TLcoordButton.hide()
+TLcoordButton.setText("Abc")
 
 
 
