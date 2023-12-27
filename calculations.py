@@ -36,11 +36,11 @@ def takeGeneralScreenshots(topleft,bottomright):
     approxDist=(width+height)//16 #screenshot requires ints.
     pieceRatio=0.7 #take the ratio, in top right so avoiding the numbers and letters.
     #just naming pieces for png files.
-    blackpieces=("rook","knight","bishop","queen","king","bishop","knight","rook") #unique pieces.
+    pieces=("rook","knight","bishop","queen","king","bishop","knight","rook") #unique pieces.
      #for the white ones on bottom.
-    whitepieces=("rook","knight","bishop","king","queen","bishop","knight","rook")
+    
 
-    for x in range (len(blackpieces)):
+    for x in range (len(pieces)):
                                                                                     ##+- 3 on each side to avoid touching lines.
         blackloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),topleft[1]+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
         whiteloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),bottomright[1]-approxDist+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
@@ -51,8 +51,8 @@ def takeGeneralScreenshots(topleft,bottomright):
         else:
             blackboardcolour="black"
             whiteboardcolour="white"
-        pyautogui.screenshot("black"+blackpieces[x]+"on"+blackboardcolour+".png",region=blackloc)
-        pyautogui.screenshot("white"+whitepieces[x]+"on"+whiteboardcolour+".png",region=whiteloc)
+        pyautogui.screenshot("black"+pieces[x]+"on"+blackboardcolour+".png",region=blackloc)
+        pyautogui.screenshot("white"+pieces[x]+"on"+whiteboardcolour+".png",region=whiteloc)
 
 
    
@@ -67,11 +67,11 @@ def extrasScreenshots(topleft,bottomright):
     approxDist=(width+height)//16 #screenshot requires ints.
     pieceRatio=0.7 #take the ratio, in top right so avoiding the numbers and letters.
 
-    blackpieces=("pawn","queen","king","pawn") #unique pieces.
+    pieces=("pawn","queen","king","pawn") #unique pieces.
      #for the white ones on bottom.
-    whitepieces=("pawn","king","queen","pawn")
+   
 
-    for x in range (len(blackpieces)):
+    for x in range (len(pieces)):
                                                                                     ##+- 3 on each side to avoid touching lines.
         blackloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),topleft[1]+approxDist+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
         whiteloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),bottomright[1]-approxDist*2+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
@@ -82,6 +82,6 @@ def extrasScreenshots(topleft,bottomright):
         else:
             blackboardcolour="white"
             whiteboardcolour="black"
-        pyautogui.screenshot("black"+blackpieces[x]+"on"+blackboardcolour+".png",region=blackloc)
-        pyautogui.screenshot("white"+whitepieces[x]+"on"+whiteboardcolour+".png",region=whiteloc)
+        pyautogui.screenshot("black"+pieces[x]+"on"+blackboardcolour+".png",region=blackloc)
+        pyautogui.screenshot("white"+pieces[x]+"on"+whiteboardcolour+".png",region=whiteloc)
 
