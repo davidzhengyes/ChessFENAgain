@@ -7,8 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-def meow():
-    print("Meow")
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -17,8 +16,11 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(220, 40, 75, 24))
+        self.pushButton.setGeometry(QtCore.QRect(240, 40, 75, 24))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(70, 50, 75, 24))
+        self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
@@ -50,15 +52,19 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuSetBoardCoords.menuAction())
 
         self.retranslateUi(MainWindow)
+        self.pushButton_2.clicked.connect(self.pushButton_2.hide) # type: ignore
+        self.pushButton.clicked.connect(self.pushButton.hide) # type: ignore
+        self.pushButton.clicked.connect(self.pushButton_2.show) # type: ignore
+        self.pushButton_2.clicked.connect(self.pushButton.show) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
         self.menuSetBoardCoords.setTitle(_translate("MainWindow", "SetBoardCoords"))
         self.menuabc123.setTitle(_translate("MainWindow", "abc123"))
         self.actionab.setText(_translate("MainWindow", "ab"))
-        self.actionab.triggered.connect(meow)
         self.actionab_2.setText(_translate("MainWindow", "ab"))
         self.actionhello.setText(_translate("MainWindow", "hello"))
