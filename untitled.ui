@@ -37,8 +37,44 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSetBoardCoords">
+    <property name="title">
+     <string>SetBoardCoords</string>
+    </property>
+    <widget class="QMenu" name="menuabc123">
+     <property name="title">
+      <string>abc123</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionhello"/>
+    </widget>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="menuabc123"/>
+    <addaction name="separator"/>
+    <addaction name="actionab"/>
+    <addaction name="actionab_2"/>
+   </widget>
+   <addaction name="menuSetBoardCoords"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionab">
+   <property name="text">
+    <string>ab</string>
+   </property>
+  </action>
+  <action name="actionab_2">
+   <property name="text">
+    <string>ab</string>
+   </property>
+  </action>
+  <action name="actionhello">
+   <property name="text">
+    <string>hello</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

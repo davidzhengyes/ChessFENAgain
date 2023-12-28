@@ -7,9 +7,9 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
 def meow():
     print("Meow")
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -19,15 +19,35 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(220, 40, 75, 24))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(meow)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
         self.menubar.setObjectName("menubar")
+        self.menuSetBoardCoords = QtWidgets.QMenu(parent=self.menubar)
+        self.menuSetBoardCoords.setObjectName("menuSetBoardCoords")
+        self.menuabc123 = QtWidgets.QMenu(parent=self.menuSetBoardCoords)
+        self.menuabc123.setObjectName("menuabc123")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionab = QtGui.QAction(parent=MainWindow)
+        self.actionab.setObjectName("actionab")
+        self.actionab_2 = QtGui.QAction(parent=MainWindow)
+        self.actionab_2.setObjectName("actionab_2")
+        self.actionhello = QtGui.QAction(parent=MainWindow)
+        self.actionhello.setObjectName("actionhello")
+        self.menuabc123.addSeparator()
+        self.menuabc123.addAction(self.actionhello)
+        self.menuSetBoardCoords.addSeparator()
+        self.menuSetBoardCoords.addSeparator()
+        self.menuSetBoardCoords.addSeparator()
+        self.menuSetBoardCoords.addSeparator()
+        self.menuSetBoardCoords.addAction(self.menuabc123.menuAction())
+        self.menuSetBoardCoords.addSeparator()
+        self.menuSetBoardCoords.addAction(self.actionab)
+        self.menuSetBoardCoords.addAction(self.actionab_2)
+        self.menubar.addAction(self.menuSetBoardCoords.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -36,3 +56,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.menuSetBoardCoords.setTitle(_translate("MainWindow", "SetBoardCoords"))
+        self.menuabc123.setTitle(_translate("MainWindow", "abc123"))
+        self.actionab.setText(_translate("MainWindow", "ab"))
+        self.actionab.triggered.connect(meow)
+        self.actionab_2.setText(_translate("MainWindow", "ab"))
+        self.actionhello.setText(_translate("MainWindow", "hello"))
