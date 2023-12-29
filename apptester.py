@@ -10,6 +10,7 @@ from tester import Ui_MainWindow
 def printmeow():
     print("meow")
 
+#need something for radio button onclick as well.
 class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -20,11 +21,21 @@ class Window(QMainWindow, Ui_MainWindow):
         print(self.plainTextEdit.toPlainText())
         print(self.radioButton.isChecked())
         self.plainTextEdit.setPlainText("Rawr!")
+    def setRadioText(self):
+        button1pressed=self.radioButton.isChecked()
+        if button1pressed:
+            self.plainTextEdit.setPlainText("White to Move")
+        else:
+            self.plainTextEdit.setPlainText("Black to Move")
+
     def connectSignalsSlots(self):
         self.pushButton_3.clicked.connect(self.printText)
     #     self.action_Exit.triggered.connect(self.close)
-   
+
         self.subwindow_0.clicked.connect(self.findAndReplace)
+
+        self.radioButton.clicked.connect(self.setRadioText)
+        self.radioButton_2.clicked.connect(self.setRadioText)
         
     #     self.action_About.triggered.connect(self.about)
   
