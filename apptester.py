@@ -7,13 +7,18 @@ from PyQt6.uic import loadUi
 
 from tester import Ui_MainWindow
 
+
+
 class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        # self.connectSignalsSlots()
+        self.connectSignalsSlots()
 
-    # def connectSignalsSlots(self):
+    def printText(self):
+        print(self.plainTextEdit.toPlainText())
+    def connectSignalsSlots(self):
+        self.pushButton_3.clicked.connect(self.printText)
     #     self.action_Exit.triggered.connect(self.close)
     #     self.action_Find_Replace.triggered.connect(self.findAndReplace)
     #     self.action_About.triggered.connect(self.about)
@@ -42,3 +47,6 @@ if __name__ == "__main__":
     win = Window()
     win.show()
     sys.exit(app.exec())
+
+print(win.self.plainTextEdit.text())
+print("hi")
