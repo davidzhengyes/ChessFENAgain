@@ -18,14 +18,16 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def printText(self):
         print(self.plainTextEdit.toPlainText())
+        print(self.radioButton.isChecked())
+        self.plainTextEdit.setPlainText("Rawr!")
     def connectSignalsSlots(self):
         self.pushButton_3.clicked.connect(self.printText)
     #     self.action_Exit.triggered.connect(self.close)
-        self.subwindow_0.clicked.connect(self.toMoveStatus)
+   
         self.subwindow_0.clicked.connect(self.findAndReplace)
         
     #     self.action_About.triggered.connect(self.about)
-    def toMoveStatus(self):
+  
         print(self.radioButton.isChecked())
 
     def findAndReplace(self):
