@@ -7,7 +7,8 @@ from PyQt6.uic import loadUi
 
 from tester import Ui_MainWindow
 
-
+def printmeow():
+    print("meow")
 
 class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -20,12 +21,17 @@ class Window(QMainWindow, Ui_MainWindow):
     def connectSignalsSlots(self):
         self.pushButton_3.clicked.connect(self.printText)
     #     self.action_Exit.triggered.connect(self.close)
-    #     self.action_Find_Replace.triggered.connect(self.findAndReplace)
+        self.subwindow_0.clicked.connect(self.toMoveStatus)
+        self.subwindow_0.clicked.connect(self.findAndReplace)
+        
     #     self.action_About.triggered.connect(self.about)
+    def toMoveStatus(self):
+        print(self.radioButton.isChecked())
 
-    # def findAndReplace(self):
-    #     dialog = FindReplaceDialog(self)
-    #     dialog.exec()
+    def findAndReplace(self):
+        dialog = FindReplaceDialog(self)
+        dialog.pushButton.clicked.connect(printmeow)
+        dialog.exec()
 
     def about(self):
         QMessageBox.about(
@@ -37,10 +43,10 @@ class Window(QMainWindow, Ui_MainWindow):
             "<p>- Python</p>",
         )
 
-# class FindReplaceDialog(QDialog):
-#     def __init__(self, parent=None):
-#         super().__init__(parent)
-#         loadUi("ui/find_replace.ui", self)
+class FindReplaceDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        loadUi("subwindow.ui", self)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
