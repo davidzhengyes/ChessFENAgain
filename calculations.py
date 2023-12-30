@@ -137,6 +137,7 @@ def locateAll(topleft,bottomright):
                 location=(x+y+'on'+z+'.png')
                 #CAN CHANGE TO LOCATE IN BOARDIMAGE LATER.
                 try:
+                    print(location)
                     for pos in pyautogui.locateAllOnScreen(location,grayscale=True):
                         #maybe try catch for error msg
                         pair=coords(pos[0],pos[1])
