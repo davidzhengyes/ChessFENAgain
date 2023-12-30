@@ -112,6 +112,19 @@
      <string>Subwindow</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="getFEN">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>270</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>GetFEN</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

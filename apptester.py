@@ -1,4 +1,6 @@
 import sys
+import mouseinputhandler as mh
+import calculations
 
 from PyQt6.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
@@ -36,14 +38,15 @@ class Window(QMainWindow, Ui_MainWindow):
 
         self.radioButton.clicked.connect(self.setRadioText)
         self.radioButton_2.clicked.connect(self.setRadioText)
-        
+        self.getFEN.clicked.connect(mh.startCalc)
     #     self.action_About.triggered.connect(self.about)
   
         print(self.radioButton.isChecked())
 
     def findAndReplace(self):
         dialog = FindReplaceDialog(self)
-        dialog.pushButton.clicked.connect(printmeow)
+        dialog.pushButton.clicked.connect(mh.topleftcoord)
+        dialog.pushButton_2.clicked.connect(mh.extrasScreenshots)
         dialog.exec()
 
     def about(self):
@@ -61,11 +64,15 @@ class FindReplaceDialog(QDialog):
         super().__init__(parent)
         loadUi("subwindow.ui", self)
 
-if __name__ == "__main__":
+def run():
+    print('run1')
+    print(__name__)
+    
+    print("run2")
     app = QApplication(sys.argv)
     win = Window()
     win.show()
     sys.exit(app.exec())
 
-print(win.self.plainTextEdit.text())
-print("hi")
+# print(win.self.plainTextEdit.text())
+# print("hi")

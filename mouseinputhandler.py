@@ -9,6 +9,7 @@ import calculations
 
 global clickedOnce,topleft,bottomright
 
+
 def is_clicked(x, y, button, pressed):
     #pressed as opposed to released
     global clickedOnce
@@ -48,6 +49,9 @@ def topleftcoord():
     print(topleft,bottomright)
     calculations.takeGeneralScreenshots(topleft,bottomright)
    
+def startCalc():
+    calculations.locateAll(topleft,bottomright)
+    #have some default run, if topleft,bottomright are both null, do something 
 
 def extrasScreenshots():
     #can only be used after these have been defined.

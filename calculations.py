@@ -1,6 +1,11 @@
 import time
 import pyautogui
 import mouseinputhandler as mh
+import math
+
+#seems like i could have created a class operation
+#so i don't have to recalculate topleft and bottomright every time.
+
 def scanrook():
 
     img="newrook.PNG"
@@ -84,4 +89,71 @@ def extrasScreenshots(topleft,bottomright):
             whiteboardcolour="black"
         pyautogui.screenshot("black"+pieces[x]+"on"+blackboardcolour+".png",region=blackloc)
         pyautogui.screenshot("white"+pieces[x]+"on"+whiteboardcolour+".png",region=whiteloc)
+
+
+
+#if want to later speed things up by 4x, need to retake coordinates of game board
+        #as anaysis board is shifted relative to game board.
+#should always use top-left corner of image, default for pyatuogui's locateallonscreen.
+        
+#pieces will never be exactly aligned in a searched row due to 
+        #pixel rounding and initialization inaccuracy.
+        #still need to verify that all are the same size?
+        #integer division by 16, meaning can have up to 16 pixel inaccuracy
+        #also human inaccuracy giving maybe 5-10 pixels
+
+def locateAll(topleft,bottomright):
+    print("parameters pass correct")
+    width=bottomright[0]-topleft[0]
+    height=bottomright[1]-topleft[1]
+    approxDist=(width+height)//16 
+
+    #need to change this when switch to game board.
+    #####
+    ##########
+    #############
+    def coords(x,y):
+        x-=topleft[0]
+        y-=topleft[1]
+
+        x=math.floor(x/approxDist)
+        y=math.floor(y/approxDist)
+        return(x,y)
+    
+
+    FEN=[]
+
+    for x in range(8):
+        FEN.append([1,1,1,1,1,1,1,1])
+
+    shorthand={'pawn':'p','rook':'r','knight':'n','bishop':'b','king':'k','queen':'q'}
+    piececolour=('black','white')
+    pieces=('pawn','rook','knight','bishop','king','queen')
+    squarecolour=('black','white')
+    #finding all black pieces and putting their coordinates into a master list
+    for x in piececolour:
+        for y in pieces:
+            for z in squarecolour:
+                location=(x+y+'on'+z+'.png')
+                #CAN CHANGE TO LOCATE IN BOARDIMAGE LATER.
+                try:
+                    for pos in pyautogui.locateAllOnScreen(location,grayscale=True):
+                        #maybe try catch for error msg
+                        pair=coords(pos[0],pos[1])
+                        print(location)
+                        print(pos)
+                        abbreviation=shorthand[y]
+                        if x=='white':
+                            abbreviation=abbreviation.upper()
+                        FEN[pair[1]][pair[0]]=abbreviation
+                except: 
+                    pass
+                else:
+                    pass
+                finally:
+                    pass
+    print(FEN)
+
+  
+
 
