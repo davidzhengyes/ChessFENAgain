@@ -4,6 +4,7 @@ from pynput.mouse import Listener
 import timeit
 import gui
 import apptester
+
 #installed requires pyqt6, pyautogui, pillow, opencv, pynput
 #maybe i DO need the images to be in the same folder.
 #note that analysis board is shifted relative to the game board bc analysis bar
@@ -30,6 +31,7 @@ import apptester
 
     #so should work even with another window over the one you want to look at. so directly 
     #analyzes screen, as it should.
+
 
 
 apptester.run()
