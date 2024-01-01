@@ -14,16 +14,21 @@ global file
 #for setting screenshot coords.
 def is_clicked(x, y, button, pressed):
     #pressed as opposed to released
+    global file
     global clickedOnce
     if pressed and clickedOnce:
         global bottomright
         bottomright=(x,y)
+        file.writelines(str(bottomright)+"\n")
+        
         return False #in your case, you can move it to some other pos
         # to stop the thread after click
     elif pressed:
         global topleft
         topleft=(x,y)
         clickedOnce=True
+        file=open("presets.txt","r+")
+        file.writelines(str(topleft)+"\n")
 
 #rename later, this is to take screenshots of pieces
         #add a check, so it can't be clicked twice before the screenshot is taken
@@ -68,7 +73,7 @@ def isgameboardclicked(x, y, button, pressed):
         global gametopleft
         gametopleft=(x,y)
         clickedOnce=True
-        file=open("presets.txt","r+")
+      
         file.writelines(str(gametopleft)+"\n")
        
 def setGameBoardCoords():

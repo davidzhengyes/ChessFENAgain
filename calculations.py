@@ -110,6 +110,7 @@ def locateAll(topleft,bottomright):
     height=bottomright[1]-topleft[1]
     approxDist=(width+height)//16 
 
+    #ALSO NEED TO VERIFY THE COORDINATES OF SCREENSHOTS. THIS ASSUMES SC IS TO THE RIGHT AND DOWN OF GRIDLINE.
     #need to change this when switch to game board.
     #####
     ##########
