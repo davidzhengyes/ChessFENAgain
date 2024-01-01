@@ -51,7 +51,7 @@ def takeGeneralScreenshots(topleft,bottomright):
                                                                                     ##+- 3 on each side to avoid touching lines.
         blackloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),topleft[1]+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
         whiteloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),bottomright[1]-approxDist+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
-
+        #MIGHT overflow on right side if bottom right selection is not accurate enough.
         if x%2==0:
             blackboardcolour="white"
             whiteboardcolour="black"

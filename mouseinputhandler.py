@@ -19,7 +19,9 @@ def is_clicked(x, y, button, pressed):
     if pressed and clickedOnce:
         global bottomright
         bottomright=(x,y)
-        file.writelines(str(bottomright)+"\n")
+        file.writelines(str(bottomright[0])+"\n")
+        file.writelines(str(bottomright[1])+"\n")
+        print(bottomright)
         
         return False #in your case, you can move it to some other pos
         # to stop the thread after click
@@ -28,7 +30,9 @@ def is_clicked(x, y, button, pressed):
         topleft=(x,y)
         clickedOnce=True
         file=open("presets.txt","r+")
-        file.writelines(str(topleft)+"\n")
+        file.writelines(str(topleft[0])+"\n")
+        file.writelines(str(topleft[1])+"\n")
+        print(topleft)
 
 #rename later, this is to take screenshots of pieces
         #add a check, so it can't be clicked twice before the screenshot is taken
@@ -65,7 +69,9 @@ def isgameboardclicked(x, y, button, pressed):
         global gamebottomright
         gamebottomright=(x,y)
     
-        file.writelines(str(gamebottomright)+"\n")
+        file.writelines(str(gamebottomright[0])+"\n")
+        file.writelines(str(gamebottomright[1])+"\n")
+        print(gamebottomright)
         file.close()
         return False 
     
@@ -74,7 +80,9 @@ def isgameboardclicked(x, y, button, pressed):
         gametopleft=(x,y)
         clickedOnce=True
       
-        file.writelines(str(gametopleft)+"\n")
+        file.writelines(str(gametopleft[0])+"\n")
+        file.writelines(str(gametopleft[1])+"\n")
+        print(gametopleft)
        
 def setGameBoardCoords():
     global clickedOnce
@@ -83,6 +91,11 @@ def setGameBoardCoords():
         listener.join()
    
 def startCalc():
+    file=open("presets.txt","r+")
+    a=file.readlines()
+    global topleft,bottomright
+    topleft=(int(a[0]),int(a[1]))
+    bottomright=(int(a[2]),int(a[3]))
     calculations.locateAll(topleft,bottomright)
     #have some default run, if topleft,bottomright are both null, do something 
 
