@@ -2,6 +2,7 @@ import time
 import pyautogui
 import mouseinputhandler as mh
 import math
+import apptester
 
 #seems like i could have created a class operation
 #so i don't have to recalculate topleft and bottomright every time.
@@ -149,11 +150,34 @@ def locateAll(topleft,bottomright):
                         FEN[pair[1]][pair[0]]=abbreviation
                 except: 
                     pass
-                else:
+                else: #not sure if this needed
                     pass
                 finally:
                     pass
     print(FEN)
+
+    #USE STACK HERE?
+    for x in range(8):
+        res=[]
+        res.append(FEN[x][0])
+        for y in range(1,8):
+            
+            if ("0" <= str(FEN[x][y]) <= "9") and ("0" <= str(res[-1]) <= "9"):
+                res[-1]+=1
+            else:
+                res.append(FEN[x][y])
+        FEN[x]=res
+
+    finalFEN=''
+    for x in range(8):
+        for y in range(len(FEN[x])):
+            finalFEN+=str((FEN[x][y]))
+        if x!=7:
+            finalFEN+="/"
+    print(finalFEN)
+    apptester.win.printText()
+
+
 
   
 

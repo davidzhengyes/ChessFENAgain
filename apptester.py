@@ -12,6 +12,8 @@ from tester import Ui_MainWindow
 def printmeow():
     print("meow")
 
+global win
+
 #need something for radio button onclick as well.
 class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -65,6 +67,7 @@ class FindReplaceDialog(QDialog):
         loadUi("subwindow.ui", self)
 
 def run():
+    global win
     print('run1')
     print(__name__)
     

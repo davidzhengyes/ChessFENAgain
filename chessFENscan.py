@@ -33,8 +33,8 @@ import apptester
     #analyzes screen, as it should.
 
 
-
-apptester.run()
+if __name__=="__main__":
+    apptester.run()
 
 
 
