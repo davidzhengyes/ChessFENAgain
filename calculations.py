@@ -3,6 +3,7 @@ import pyautogui
 import mouseinputhandler as mh
 import math
 import apptester
+import requests
 
 #seems like i could have created a class operation
 #so i don't have to recalculate topleft and bottomright every time.
@@ -175,7 +176,9 @@ def locateAll(topleft,bottomright):
         if x!=7:
             finalFEN+="/"
     print(finalFEN)
-    apptester.win.printText()
+
+    res="W3"
+    apptester.win.showText(finalFEN+"\n"+res)
 
 
 

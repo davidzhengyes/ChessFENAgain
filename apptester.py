@@ -21,6 +21,9 @@ class Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.connectSignalsSlots()
 
+    def showText(self,text):
+        self.plainTextEdit.setPlainText(text)
+
     def printText(self):
         print(self.plainTextEdit.toPlainText())
         print(self.radioButton.isChecked())
@@ -49,6 +52,7 @@ class Window(QMainWindow, Ui_MainWindow):
         dialog = FindReplaceDialog(self)
         dialog.pushButton.clicked.connect(mh.topleftcoord)
         dialog.pushButton_2.clicked.connect(mh.extrasScreenshots)
+        dialog.pushButton_3.clicked.connect(mh.setGameBoardCoords)
         dialog.exec()
 
     def about(self):

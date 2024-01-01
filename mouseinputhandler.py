@@ -8,8 +8,10 @@ from pynput.mouse import Listener
 import calculations
 
 global clickedOnce,topleft,bottomright
+global gametopleft,gamebottomright
+global file
 
-
+#for setting screenshot coords.
 def is_clicked(x, y, button, pressed):
     #pressed as opposed to released
     global clickedOnce
@@ -48,6 +50,32 @@ def topleftcoord():
     print("run")
     print(topleft,bottomright)
     calculations.takeGeneralScreenshots(topleft,bottomright)
+
+#MIGHT NEED A SEPARATE CLICKEDONCE BOOL
+def isgameboardclicked(x, y, button, pressed):
+    global clickedOnce
+    global file
+    
+    if pressed and clickedOnce:
+        global gamebottomright
+        gamebottomright=(x,y)
+    
+        file.writelines(str(gamebottomright)+"\n")
+        file.close()
+        return False 
+    
+    elif pressed:
+        global gametopleft
+        gametopleft=(x,y)
+        clickedOnce=True
+        file=open("presets.txt","r+")
+        file.writelines(str(gametopleft)+"\n")
+       
+def setGameBoardCoords():
+    global clickedOnce
+    clickedOnce=False
+    with Listener(on_click=isgameboardclicked) as listener:
+        listener.join()
    
 def startCalc():
     calculations.locateAll(topleft,bottomright)

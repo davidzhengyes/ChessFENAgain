@@ -125,6 +125,33 @@
      <string>GetFEN</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>411</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>48</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>[[1, 1, 1, 1, 1, 1, 1, 1], ['p', 'q', 'k', 'p', 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], ['P', 'Q', 'K', 'P', 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]]</string>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>plainTextEdit</zorder>
+   <zorder>radioButton</zorder>
+   <zorder>radioButton_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>subwindow_0</zorder>
+   <zorder>getFEN</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
