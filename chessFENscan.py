@@ -4,6 +4,7 @@ from pynput.mouse import Listener
 import timeit
 import gui
 import apptester
+#NEED TO HAVE HIGHLIGHT MOVES DISABLED!
 
 #installed requires pyqt6, pyautogui, pillow, opencv, pynput
 #maybe i DO need the images to be in the same folder.

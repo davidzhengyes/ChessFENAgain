@@ -94,8 +94,8 @@ def startCalc():
     file=open("presets.txt","r+")
     a=file.readlines()
     global topleft,bottomright
-    topleft=(int(a[0]),int(a[1]))
-    bottomright=(int(a[2]),int(a[3]))
+    topleft=(int(a[4]),int(a[5]))
+    bottomright=(int(a[6]),int(a[7]))
     calculations.locateAll(topleft,bottomright)
     #have some default run, if topleft,bottomright are both null, do something 
 

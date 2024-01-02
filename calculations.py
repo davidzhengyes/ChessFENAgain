@@ -4,6 +4,7 @@ import mouseinputhandler as mh
 import math
 import apptester
 import requests
+import chess.engine
 
 #seems like i could have created a class operation
 #so i don't have to recalculate topleft and bottomright every time.
@@ -104,7 +105,7 @@ def extrasScreenshots(topleft,bottomright):
         #integer division by 16, meaning can have up to 16 pixel inaccuracy
         #also human inaccuracy giving maybe 5-10 pixels
 
-def locateAll(topleft,bottomright):
+def locateAll(topleft,bottomright): #topleft and bottomright of GAME SCREEN.
     print("parameters pass correct")
     width=bottomright[0]-topleft[0]
     height=bottomright[1]-topleft[1]
@@ -140,18 +141,17 @@ def locateAll(topleft,bottomright):
                 location=(x+y+'on'+z+'.png')
                 #CAN CHANGE TO LOCATE IN BOARDIMAGE LATER.
                 try:
-                    print(location)
+                   
                     for pos in pyautogui.locateAllOnScreen(location,grayscale=True):
                         #maybe try catch for error msg
                         pair=coords(pos[0],pos[1])
-                        print(location)
-                        print(pos)
+                    
                         abbreviation=shorthand[y]
                         if x=='white':
                             abbreviation=abbreviation.upper()
                         FEN[pair[1]][pair[0]]=abbreviation
                 except: 
-                    pass
+                    print("not found",location)
                 else: #not sure if this needed
                     pass
                 finally:
@@ -178,7 +178,18 @@ def locateAll(topleft,bottomright):
             finalFEN+="/"
     print(finalFEN)
 
-    res="W3"
+    if apptester.win.radioButton.isChecked():
+        board = chess.Board(finalFEN + " w - - 4 45")
+    else:
+        board = chess.Board(finalFEN + " b - - 4 45")
+
+    engine = chess.engine.SimpleEngine.popen_uci("stockfish-windows-x86-64-avx2.exe")
+
+    res=(str((engine.play(board, chess.engine.Limit(time=0.2))).move))
+
+    engine.quit()
+
+    
     apptester.win.showText(finalFEN+"\n"+res)
 
 
