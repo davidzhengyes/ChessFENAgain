@@ -190,7 +190,8 @@ def locateAll(topleft,bottomright): #topleft and bottomright of GAME SCREEN.
     engine.quit()
 
     
-    apptester.win.showText(finalFEN+"\n"+res)
+    apptester.win.showText(finalFEN)
+    apptester.win.textEdit.setPlainText(res)
 
 
 

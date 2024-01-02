@@ -2,7 +2,7 @@
 import mouseinputhandler as mh
 from pynput.mouse import Listener
 import timeit
-import gui
+
 import apptester
 #NEED TO HAVE HIGHLIGHT MOVES DISABLED!
 

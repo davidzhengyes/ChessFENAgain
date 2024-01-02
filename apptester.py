@@ -24,10 +24,10 @@ class Window(QMainWindow, Ui_MainWindow):
     def showText(self,text):
         self.plainTextEdit.setPlainText(text)
 
-    def printText(self):
-        print(self.plainTextEdit.toPlainText())
-        print(self.radioButton.isChecked())
-        self.plainTextEdit.setPlainText("Rawr!")
+    # def printText(self):
+    #     print(self.plainTextEdit.toPlainText())
+    #     print(self.radioButton.isChecked())
+    #     self.plainTextEdit.setPlainText("Rawr!")
     def setRadioText(self):
         button1pressed=self.radioButton.isChecked()
         if button1pressed:
@@ -36,7 +36,7 @@ class Window(QMainWindow, Ui_MainWindow):
             self.plainTextEdit.setPlainText("Black to Move")
 
     def connectSignalsSlots(self):
-        self.pushButton_3.clicked.connect(self.printText)
+        # self.pushButton_3.clicked.connect(self.printText)
     #     self.action_Exit.triggered.connect(self.close)
 
         self.subwindow_0.clicked.connect(self.findAndReplace)
