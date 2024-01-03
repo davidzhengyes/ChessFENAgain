@@ -5,12 +5,21 @@ Undetectable for sure. Offline compatible as well (stronger if using stockfish G
 <br>
 Still very unusable for anyone who isn't Me. Documentation coming soon.
 
+![image](https://github.com/davidzhengyes/ChessFENAgain/assets/81645746/81604eda-1e1a-4fac-ba5a-0b27a9338791)
+![image](https://github.com/davidzhengyes/ChessFENAgain/assets/81645746/1e3c0add-446d-4953-a4bf-fd8834c4cae0)
+
+
 ## Instructions
 Highlight move MUST be unchecked!
+<br>
+For now, only works on boards with consistent dark and light squares, each dark/light square must be identical. Support for others may come in the future.
+<br>
 Need to have python PyPi packages installed: pyqt6, pyautogui, pillow, pynput pyside6?
 
 <br> Should set up your own piece images before using.
 <br> First, go to chess.com's analysis board. Next, in the "Initialize Pieces" Subwindow, click "Set Default Pieces" ONCE, then click the top-left and bottom-right corners of the board, making sure not to click on the white rook. Next, set up the board, and paste in the FEN "8/pqkp4/8/8/8/8/PQKP4/8 b - - 0 1". Click "Scan Extras". Next, go to any play against computer game, click "Game Board Loc" and then click the top-left and bottom-right corners. You are now ready to evaluate. Click either "White to move" or "Black to move", then "GetFEN".
+
+
 
 
 
