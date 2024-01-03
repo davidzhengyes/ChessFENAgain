@@ -81,7 +81,7 @@ def extrasScreenshots(topleft,bottomright):
 
     for x in range (len(pieces)):
                                                                                     ##+- 3 on each side to avoid touching lines.
-        blackloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),topleft[1]+approxDist+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
+        blackloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),topleft[1]+approxDist+5,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
         whiteloc=(topleft[0]+x*approxDist+int((1-pieceRatio)*approxDist),bottomright[1]-approxDist*2+3,int(approxDist*pieceRatio)-3,int(approxDist*pieceRatio)-3)
 
         if x%2==0:
@@ -144,14 +144,16 @@ def locateAll(topleft,bottomright): #topleft and bottomright of GAME SCREEN.
                    
                     for pos in pyautogui.locateAllOnScreen(location,grayscale=True):
                         #maybe try catch for error msg
+                        print(z,y)
                         pair=coords(pos[0],pos[1])
+                        print(pair)
                     
                         abbreviation=shorthand[y]
                         if x=='white':
                             abbreviation=abbreviation.upper()
                         FEN[pair[1]][pair[0]]=abbreviation
                 except: 
-                    print("not found",location)
+                    pass
                 else: #not sure if this needed
                     pass
                 finally:
