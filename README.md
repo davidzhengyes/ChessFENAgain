@@ -1,4 +1,9 @@
 # ChessFENAgain
+
+## DISCLAIMER
+Please don't cheat in any online game. This project was just for my own interest. I would never use this against an online opponent, even if my rating is in the gutter (it is right now). YOU WILL GET BANNED IF YOU USE THIS ONLINE. You are a terrible human being if you use this against your friends. Only use against bots.
+
+## Showcase
 Improvements to ChessFEN. Speed optimizations incoming and less breakable code.
 <br>
 Undetectable for sure. Offline compatible as well (stronger if using stockfish GET api)
