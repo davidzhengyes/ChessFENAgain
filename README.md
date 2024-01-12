@@ -21,6 +21,7 @@ For now, only works on boards with consistent dark and light squares, each dark/
 <br>
 Need to have python PyPi packages installed: pyqt6, pyautogui, pillow, pynput, chess, requests (not used as of now) <br>
 **THE PROGRAM DOES NOT FORCE YOU TO INSTALL, BUT pip install opencv-python SPEEDS IT UP MAYBE 10-15X**
+<br> From something like 20-40s to 2s.
 
 <br> Should set up your own piece images before using.
 <br> First, go to chess.com's analysis board. Next, in the "Initialize Pieces" Subwindow, click "Set Default Pieces" ONCE, then click the top-left and bottom-right corners of the board, making sure not to click on the white rook. Next, set up the board, and paste in the FEN "8/pqkp4/8/8/8/8/PQKP4/8 b - - 0 1". Click "Scan Extras". Next, go to any play against computer game, click "Game Board Loc" and then click the top-left and bottom-right corners. You are now ready to evaluate. Click either "White to move" or "Black to move", then "GetFEN".
